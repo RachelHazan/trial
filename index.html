@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="./style.css" rel="stylesheet" />
+  <link href="./Content/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+</head>
+
+<body>
+  <button onclick="document.getElementById('id01').style.display='block'">Login</button>
+  <button style="bottom: 0px;" onclick="logout()">LogOut</button>
+
+  <div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'" class="close"
+      title="Close Modal">&times;</span>
+    <form class="modal-content animate" onsubmit="OKForm(event)">
+      <div class="imgcontainer">
+        <img src="./pic/11.png" alt="Avatar" class="avatar">
+      </div>
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+        <!-- <i class="bi-search"></i> -->
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <button type="submit">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'"
+          class="cancelbtn">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <!--הקשת הקוד שקיבל בהודעה -->
+  <div class="Close" >
+
+    <form class="modal-content animate" onsubmit="ll(event)" id="ok" style="display: none;">
+      <div class="imgcontainer">
+      </div>
+      <div class="container">
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        <label for="Code"><b>Code</b></label>
+        <input type="text" placeholder="Press The Code That You Got" name="Code" required>
+
+        <button type="submit">Continue</button>
+
+      </div>
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'"
+          class="cancelbtn">Cancel</button>
+      </div>
+    </form>
+
+  </div>
+
+
+  <!-- הצגת אופציות למי שלא יכול להכנס -->
+  <div class="Close flexclass" id="first" style="display: none;">
+    <span id="one"> לקוח יקר, </span>
+    </br>
+    <span id="tow"> אינך קיים במערכת.</span>
+    </br>
+
+    <span id="three">לפנייך מספר אפשרויות:</span>
+    </br>
+    <ul style="list-style: none; display:inline-flex;">
+      <li>
+        <button style="height: 200px; width:200px; margin: 0.5em;" onclick="SMS()">כניסה עם קוד חד פעמי לנייד שלך
+        </button>
+      </li>
+      <li>
+        <button style="height: 200px; width: 200px; margin: 0.5em;" onclick="createForm()">להרשמה מהירה לשירותים
+          הדיגיטליים</button>
+      </li>
+      <li>
+        <button style="height: 200px; width: 200px;  margin: 0.5em;" onclick="forgot()"> לשחזור שם המששתמש והסיסמה שלך
+          ע"י מענה על מספר שאלות זיהוי </button>
+      </li>
+      <li>
+        <button style="height: 200px; width: 200px;  margin: 0.5em;" onclick="randUser()">לקבלת שם משתמש וסיסמה ליום אחד
+          בלבד</button>
+      </li>
+    </ul>
+  </div>
+
+
+
+  <!--   רישום משתמש והוספה למערך המשתמשים -->
+
+  <form class="modal-content animate" onsubmit="AddUser(event)" id="Adduser" style="display: none;">
+    <div class="imgcontainer">
+    </div>
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <label for="psw1"><b>Confirm Password</b></label>
+      <input type="password" placeholder="Enter Password Again" name="psw1" required>
+
+      <button type="submit">Login</button>
+
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'"
+        class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+
+
+
+  <!-- הקשת מספר טלפון ושליחת הודעה -->
+
+  <form class="modal-content animate" onsubmit="lll(event)" id="Sms" style="display: none;">
+    <div class="imgcontainer">
+    </div>
+    <div class="container">
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      <label for="Phone"><b>Phone Number</b></label>
+      <input type="tel" placeholder="Enter your Phone Number" pattern="0[0-9]{1,2}-?[0-9]{7}" name="Phone" required>
+
+      <button type="submit">Send</button>
+
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <!-- <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button> -->
+    </div>
+  </form>
+
+
+  <!-- <input type="button" id="wrong" onclick="opening()" value="return to home page"> -->
+
+  <div class="Close flexclass" id="Customer"
+    style="display: none; margin-top: 300px; flex-direction: column; direction: rtl; align-items: center; text-align: center;">
+    <span id="f"></span>
+    </br>
+    <span id="s"> נרשמת בהצלחה למערכת. </span>
+    </br>
+
+    <span>לפנייך מספר אפשרויות:</span>
+    </br>
+    <ul style="list-style: none; display:inline-flex;">
+      <li>
+        <button style="height: 200px; width:200px; margin: 0.5em;" onclick="chat()">לכתיבת הודעה למנהל המערכת </button>
+        <i class="emoji-smile-fill::before"></i>
+      </li>
+      <li>
+        <button style="height: 200px; width: 200px; margin: 0.5em;" onclick="seePlaces()">לצפייה בכתובות הסניפים
+          שלנו</button>
+      </li>
+      <li>
+        <button style="height: 200px; width: 200px;  margin: 0.5em;" onclick="l()">לשיחת קישור במייל לחברים</button>
+      </li>
+      <li>
+        <button style="height: 200px; width: 200px;  margin: 0.5em;" onclick="randUser()"></button>
+      </li>
+    </ul>
+  </div>
+  <!-- <input type="button" id="wrong" onclick="opening()" value="return to home page"> -->
+  <script src="app.js"></script>
+</body>
+
+</html>
